@@ -1,0 +1,428 @@
+<ui version="4.0" >
+ <class>QTMatrixClass</class>
+ <widget class="QMainWindow" name="QTMatrixClass" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>674</width>
+    <height>371</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>QTMatrix</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>86</y>
+     <width>674</width>
+     <height>262</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout" >
+    <item>
+     <widget class="drawWidget" native="1" name="widget" >
+      <property name="styleSheet" >
+       <string notr="true" />
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>674</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDatei" >
+    <property name="title" >
+     <string>&amp;Datei</string>
+    </property>
+    <addaction name="actionSavePoints" />
+    <addaction name="actionLoadPoints" />
+    <addaction name="separator" />
+    <addaction name="actionQuit" />
+   </widget>
+   <widget class="QMenu" name="menuAnzeige" >
+    <property name="title" >
+     <string>Anzeige</string>
+    </property>
+    <addaction name="actionShowMidPoint" />
+   </widget>
+   <widget class="QMenu" name="menuBearbeiten" >
+    <property name="title" >
+     <string>Bearbeiten</string>
+    </property>
+    <addaction name="actionSelectAll" />
+    <addaction name="actionDelete" />
+   </widget>
+   <widget class="QMenu" name="menuHilfe" >
+    <property name="title" >
+     <string>Hilfe</string>
+    </property>
+    <addaction name="actionAbout" />
+   </widget>
+   <widget class="QMenu" name="menuTSP" >
+    <property name="title" >
+     <string>TSP</string>
+    </property>
+    <addaction name="actionLasso" />
+   </widget>
+   <addaction name="menuDatei" />
+   <addaction name="menuBearbeiten" />
+   <addaction name="menuAnzeige" />
+   <addaction name="menuTSP" />
+   <addaction name="menuHilfe" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>348</y>
+     <width>674</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="toolBar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>26</y>
+     <width>674</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="windowTitle" >
+    <string>toolBar</string>
+   </property>
+   <property name="movable" >
+    <bool>true</bool>
+   </property>
+   <property name="allowedAreas" >
+    <set>Qt::NoToolBarArea</set>
+   </property>
+   <property name="toolButtonStyle" >
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea" >
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak" >
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionSelect" />
+   <addaction name="actionAddPoint" />
+   <addaction name="actionDelPoint" />
+  </widget>
+  <action name="actionQuit" >
+   <property name="text" >
+    <string>Beenden</string>
+   </property>
+  </action>
+  <action name="actionAddPoint" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="icons.qrc" >
+     <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
+   </property>
+   <property name="text" >
+    <string>neuer Punkt</string>
+   </property>
+  </action>
+  <action name="actionDelPoint" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="icons.qrc" >
+     <normaloff>:/icons/del.png</normaloff>:/icons/del.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Punkt entfernen</string>
+   </property>
+   <property name="shortcut" >
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actionLoadPoints" >
+   <property name="text" >
+    <string>Öffnen</string>
+   </property>
+   <property name="shortcut" >
+    <string>O</string>
+   </property>
+  </action>
+  <action name="actionSavePoints" >
+   <property name="text" >
+    <string>Speichern</string>
+   </property>
+   <property name="shortcut" >
+    <string>S</string>
+   </property>
+  </action>
+  <action name="actionShowMidPoint" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Mittelpunkt</string>
+   </property>
+   <property name="shortcut" >
+    <string>M</string>
+   </property>
+  </action>
+  <action name="actionSelectAll" >
+   <property name="text" >
+    <string>Alles auswählen</string>
+   </property>
+   <property name="shortcut" >
+    <string>A</string>
+   </property>
+  </action>
+  <action name="actionAbout" >
+   <property name="text" >
+    <string>Über</string>
+   </property>
+  </action>
+  <action name="actionSelect" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Auswählen</string>
+   </property>
+  </action>
+  <action name="actionDelete" >
+   <property name="text" >
+    <string>Entfernen</string>
+   </property>
+   <property name="shortcut" >
+    <string>E</string>
+   </property>
+  </action>
+  <action name="actionLasso" >
+   <property name="text" >
+    <string>Lasso</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>drawWidget</class>
+   <extends>QWidget</extends>
+   <header location="global" >drawwidget.h</header>
+   <container>1</container>
+   <slots>
+    <slot>setAddMode(bool)</slot>
+    <slot>setDelMode(bool)</slot>
+    <slot>savePoints()</slot>
+    <slot>loadPoints()</slot>
+    <slot>setShowMidPoint(bool)</slot>
+    <slot>selectAll()</slot>
+    <slot>setSelectMode(bool)</slot>
+    <slot>deletePoints()</slot>
+    <slot>connectLasso()</slot>
+    <signal>changed(int,int,int)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="icons.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionAddPoint</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget</receiver>
+   <slot>setAddMode(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDelPoint</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget</receiver>
+   <slot>setDelMode(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionLoadPoints</sender>
+   <signal>activated()</signal>
+   <receiver>widget</receiver>
+   <slot>loadPoints()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSavePoints</sender>
+   <signal>activated()</signal>
+   <receiver>widget</receiver>
+   <slot>savePoints()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionQuit</sender>
+   <signal>activated()</signal>
+   <receiver>QTMatrixClass</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>changed(int,int,int)</signal>
+   <receiver>QTMatrixClass</receiver>
+   <slot>updateStatus(int,int,int)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShowMidPoint</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget</receiver>
+   <slot>setShowMidPoint(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSelectAll</sender>
+   <signal>activated()</signal>
+   <receiver>widget</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSelect</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget</receiver>
+   <slot>setSelectMode(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDelete</sender>
+   <signal>activated()</signal>
+   <receiver>widget</receiver>
+   <slot>deletePoints()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionLasso</sender>
+   <signal>activated()</signal>
+   <receiver>widget</receiver>
+   <slot>connectLasso()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>336</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>updateStatus(int,int,int)</slot>
+ </slots>
+</ui>
